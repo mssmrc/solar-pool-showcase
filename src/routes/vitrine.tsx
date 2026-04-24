@@ -52,10 +52,10 @@ function VitrinePage() {
   }, [tipo, cidade]);
 
   const setTipo = (t: (typeof TYPE_VALUES)[number]) =>
-    navigate({ search: (prev) => ({ ...prev, tipo: t }) });
+    navigate({ search: (prev: { tipo: string; cidade: string }) => ({ ...prev, tipo: t }) });
 
   const setCidade = (c: string) =>
-    navigate({ search: (prev) => ({ ...prev, cidade: c }) });
+    navigate({ search: (prev: { tipo: string; cidade: string }) => ({ ...prev, cidade: c }) });
 
   return (
     <>
