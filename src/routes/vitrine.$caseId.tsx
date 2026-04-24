@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, MapPin, Calendar, Tag, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getCaseById, CASE_TYPE_LABEL, formatInstallDate } from "@/data/cases";
+import { getCaseById, CASE_TYPE_LABEL, formatInstallDate, type ProjectCase } from "@/data/cases";
 import { buildWhatsappUrl } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/vitrine/$caseId")({
 });
 
 function CaseDetailPage() {
-  const data = Route.useLoaderData();
+  const data = Route.useLoaderData() as ProjectCase;
   const [activeImg, setActiveImg] = useState(0);
 
   return (
