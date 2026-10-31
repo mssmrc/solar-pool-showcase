@@ -18,17 +18,19 @@ import { buildWhatsappUrl, siteConfig } from "@/config/site";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato - SolAqua | Aquecimento Solar para Piscinas" },
+      { title: "Contato - EDR Aquecedores | Aquecimento Solar de Água" },
       {
         name: "description",
         content:
-          "Entre em contato com a SolAqua para orçamento de instalação ou manutenção de aquecimento solar para piscinas.",
+          "Entre em contato com a EDR Aquecedores para orçamento de instalação ou manutenção de aquecimento solar de água para chuveiros e torneiras.",
       },
-      { property: "og:title", content: "Contato - SolAqua" },
+      { property: "og:title", content: "Contato - EDR Aquecedores" },
       {
         property: "og:description",
-        content: "Solicite seu orçamento de aquecimento solar para piscina.",
+        content: "Solicite seu orçamento de aquecimento solar de água.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ContatoPage,
@@ -60,19 +62,19 @@ type FieldErrors = Partial<Record<keyof ContactForm, string>>;
 const faqs = [
   {
     q: "Quanto tempo leva a instalação?",
-    a: "Para piscinas residenciais, a instalação completa leva em média de 1 a 3 dias úteis, dependendo do porte do sistema e do telhado.",
+    a: "Para residências, a instalação completa leva em média de 1 a 2 dias úteis, dependendo do porte do sistema e do telhado.",
   },
   {
     q: "Qual a garantia oferecida?",
-    a: "Oferecemos garantia de 5 anos nas placas e 1 ano nos serviços de instalação. Após esse período, mantemos atendimento de manutenção preventiva.",
+    a: "Oferecemos garantia de 5 anos nos coletores e boiler e 1 ano nos serviços de instalação. Após esse período, mantemos atendimento de manutenção preventiva.",
   },
   {
     q: "Funciona em dias nublados?",
-    a: "Sim, o sistema continua aquecendo mesmo com céu nublado, embora com menor eficiência. Em dias frios prolongados, recomendamos uso de capa térmica como complemento.",
+    a: "Sim, o sistema continua aquecendo mesmo com céu nublado, embora com menor eficiência. Em dias frios prolongados, a resistência auxiliar do boiler garante a água quente.",
   },
   {
-    q: "Quanto tempo até pagar o investimento?",
-    a: "O retorno do investimento varia de 18 a 30 meses, considerando a economia em comparação com aquecedores a gás ou elétricos.",
+    q: "Quanto vou economizar?",
+    a: "O aquecimento de água representa grande parte da conta de energia de uma residência. Com o sistema solar, a economia pode chegar a até 30% no total da conta, com retorno em cerca de 2 anos.",
   },
 ];
 
@@ -111,7 +113,7 @@ function ContatoPage() {
       `📞 Telefone: ${data.telefone}%0A` +
       `✉️ E-mail: ${data.email}%0A` +
       (data.observacoes ? `%0A📝 Observações:%0A${data.observacoes}` : "") +
-      `%0A%0AGostaria de receber mais informações sobre aquecimento solar para piscina.`;
+      `%0A%0AGostaria de receber mais informações sobre aquecimento solar de água.`;
 
     const url = `https://wa.me/${siteConfig.whatsappNumber}?text=${message}`;
     window.open(url, "_blank", "noopener,noreferrer");

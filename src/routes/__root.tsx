@@ -33,18 +33,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SolAqua - Aquecimento Solar para Piscinas" },
+      { title: "EDR Aquecedores - Aquecimento Solar de Água" },
       {
         name: "description",
         content:
-          "Instalação e manutenção de placas de aquecimento solar para piscinas. Aproveite sua piscina o ano todo com economia.",
+          "Instalação e manutenção de aquecimento solar de água para chuveiros e torneiras. Água quente o ano todo com economia.",
       },
-      { name: "author", content: "SolAqua" },
-      { property: "og:title", content: "SolAqua - Aquecimento Solar para Piscinas" },
+      { name: "author", content: "EDR Aquecedores" },
+      { property: "og:title", content: "EDR Aquecedores - Aquecimento Solar de Água" },
       {
         property: "og:description",
         content:
-          "Instalação e manutenção de placas de aquecimento solar para piscinas em São Paulo e região.",
+          "Instalação e manutenção de aquecimento solar de água em São Paulo e região.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

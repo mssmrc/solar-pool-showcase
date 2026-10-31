@@ -46,8 +46,13 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/vitrine" className="hover:text-primary">
-                Vitrine de projetos
+              <Link to="/portfolio" className="hover:text-primary">
+                Portifólio de projetos
+              </Link>
+            </li>
+            <li>
+              <Link to="/loja" className="hover:text-primary">
+                Loja
               </Link>
             </li>
             <li>
