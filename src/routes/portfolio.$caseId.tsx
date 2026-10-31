@@ -6,7 +6,7 @@ import { getCaseById, CASE_TYPE_LABEL, formatInstallDate, type ProjectCase } fro
 import { buildWhatsappUrl } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/vitrine/$caseId")({
+export const Route = createFileRoute("/portfolio/$caseId")({
   loader: ({ params }) => {
     const data = getCaseById(params.caseId);
     if (!data) throw notFound();

@@ -9,14 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VitrineRouteImport } from './routes/vitrine'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as VitrineCaseIdRouteImport } from './routes/vitrine.$caseId'
+import { Route as PortfolioCaseIdRouteImport } from './routes/portfolio.$caseId'
 
-const VitrineRoute = VitrineRouteImport.update({
-  id: '/vitrine',
-  path: '/vitrine',
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -29,52 +29,52 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VitrineCaseIdRoute = VitrineCaseIdRouteImport.update({
+const PortfolioCaseIdRoute = PortfolioCaseIdRouteImport.update({
   id: '/$caseId',
   path: '/$caseId',
-  getParentRoute: () => VitrineRoute,
+  getParentRoute: () => PortfolioRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/vitrine': typeof VitrineRouteWithChildren
-  '/vitrine/$caseId': typeof VitrineCaseIdRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/portfolio/$caseId': typeof PortfolioCaseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/vitrine': typeof VitrineRouteWithChildren
-  '/vitrine/$caseId': typeof VitrineCaseIdRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/portfolio/$caseId': typeof PortfolioCaseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/vitrine': typeof VitrineRouteWithChildren
-  '/vitrine/$caseId': typeof VitrineCaseIdRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/portfolio/$caseId': typeof PortfolioCaseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/vitrine' | '/vitrine/$caseId'
+  fullPaths: '/' | '/contato' | '/portfolio' | '/portfolio/$caseId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/vitrine' | '/vitrine/$caseId'
-  id: '__root__' | '/' | '/contato' | '/vitrine' | '/vitrine/$caseId'
+  to: '/' | '/contato' | '/portfolio' | '/portfolio/$caseId'
+  id: '__root__' | '/' | '/contato' | '/portfolio' | '/portfolio/$caseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
-  VitrineRoute: typeof VitrineRouteWithChildren
+  PortfolioRoute: typeof PortfolioRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vitrine': {
-      id: '/vitrine'
-      path: '/vitrine'
-      fullPath: '/vitrine'
-      preLoaderRoute: typeof VitrineRouteImport
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -91,31 +91,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/vitrine/$caseId': {
-      id: '/vitrine/$caseId'
+    '/portfolio/$caseId': {
+      id: '/portfolio/$caseId'
       path: '/$caseId'
-      fullPath: '/vitrine/$caseId'
-      preLoaderRoute: typeof VitrineCaseIdRouteImport
-      parentRoute: typeof VitrineRoute
+      fullPath: '/portfolio/$caseId'
+      preLoaderRoute: typeof PortfolioCaseIdRouteImport
+      parentRoute: typeof PortfolioRoute
     }
   }
 }
 
-interface VitrineRouteChildren {
-  VitrineCaseIdRoute: typeof VitrineCaseIdRoute
+interface PortfolioRouteChildren {
+  PortfolioCaseIdRoute: typeof PortfolioCaseIdRoute
 }
 
-const VitrineRouteChildren: VitrineRouteChildren = {
-  VitrineCaseIdRoute: VitrineCaseIdRoute,
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioCaseIdRoute: PortfolioCaseIdRoute,
 }
 
-const VitrineRouteWithChildren =
-  VitrineRoute._addFileChildren(VitrineRouteChildren)
+const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
+  PortfolioRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
-  VitrineRoute: VitrineRouteWithChildren,
+  PortfolioRoute: PortfolioRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

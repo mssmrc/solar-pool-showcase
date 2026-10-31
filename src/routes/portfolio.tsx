@@ -18,7 +18,7 @@ const vitrineSearchSchema = z.object({
   cidade: fallback(z.string(), "all").default("all"),
 });
 
-export const Route = createFileRoute("/vitrine")({
+export const Route = createFileRoute("/portfolio")({
   validateSearch: zodValidator(vitrineSearchSchema),
   head: () => ({
     meta: [
