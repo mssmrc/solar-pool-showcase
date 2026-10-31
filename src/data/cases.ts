@@ -3,16 +3,16 @@ import caseResidencial2 from "@/assets/case-residencial-2.jpg";
 import caseResidencial3 from "@/assets/case-residencial-3.jpg";
 import caseComercial1 from "@/assets/case-comercial-1.jpg";
 import caseCondominio1 from "@/assets/case-condominio-1.jpg";
-import caseClube1 from "@/assets/case-clube-1.jpg";
+import caseIndustrial1 from "@/assets/case-industrial-1.jpg";
 import caseDetailPanels from "@/assets/case-detail-panels.jpg";
 
-export type CaseType = "residencial" | "comercial" | "condominio" | "clube";
+export type CaseType = "residencial" | "condominio" | "comercial" | "industrial";
 
 export const CASE_TYPE_LABEL: Record<CaseType, string> = {
   residencial: "Residencial",
-  comercial: "Comercial",
   condominio: "Condomínio",
-  clube: "Clube",
+  comercial: "Comercial",
+  industrial: "Industrial",
 };
 
 export interface ProjectCase {
@@ -30,17 +30,17 @@ export interface ProjectCase {
 
 export const cases: ProjectCase[] = [
   {
-    id: "residencia-jardim-europa-sp",
-    title: "Residência - Jardim Europa",
+    id: "residencia-vila-mariana-sp",
+    title: "Residência - Vila Mariana",
     type: "residencial",
     city: "São Paulo - SP",
     installedAt: "2024-09",
     cover: caseResidencial1,
     gallery: [caseResidencial1, caseDetailPanels, caseResidencial2],
     summary:
-      "Sistema completo instalado em telhado de cerâmica, com aproveitamento máximo da insolação durante o dia.",
+      "Sistema com 2 coletores e boiler de 300 litros, garantindo banhos quentes para toda a família sem depender do chuveiro elétrico.",
     description:
-      "Instalação completa de aquecimento solar em residência de alto padrão, com acompanhamento de obra e integração ao sistema de filtragem existente. O cliente passou a usar a piscina o ano inteiro, com retorno do investimento previsto em 24 meses.",
+      "Instalação completa de aquecimento solar de água em residência, abastecendo chuveiros e torneiras de toda a casa. A substituição do chuveiro elétrico trouxe uma queda visível na conta de energia, com retorno do investimento previsto em menos de 2 anos.",
     highlight: true,
   },
   {
@@ -52,23 +52,23 @@ export const cases: ProjectCase[] = [
     cover: caseResidencial2,
     gallery: [caseResidencial2, caseDetailPanels, caseResidencial3],
     summary:
-      "Projeto integrado com deck de madeira e iluminação, mantendo a estética sem comprometer a performance.",
+      "Projeto integrado ao telhado de cerâmica, mantendo a estética da casa sem comprometer a performance do sistema.",
     description:
-      "Sistema dimensionado para piscina de 42 m² com cobertura térmica auxiliar. Posicionamento das placas estudado para integração visual com o paisagismo da casa.",
+      "Sistema dimensionado para 4 banheiros e cozinha, com boiler de 500 litros e apoio elétrico para dias muito nublados. Posicionamento dos coletores estudado para integração visual com a arquitetura da casa.",
     highlight: true,
   },
   {
-    id: "hotel-litoral-norte",
-    title: "Hotel Beira-Mar",
+    id: "pousada-litoral-norte",
+    title: "Pousada Beira-Mar",
     type: "comercial",
     city: "Litoral Norte - SP",
     installedAt: "2024-05",
     cover: caseComercial1,
-    gallery: [caseComercial1, caseDetailPanels, caseClube1],
+    gallery: [caseComercial1, caseDetailPanels, caseIndustrial1],
     summary:
-      "Aquecimento de piscina comercial de grande porte, ampliando a temporada de uso para hóspedes o ano todo.",
+      "Aquecimento solar de água para 25 chalés e área comum, reduzindo drasticamente o custo com chuveiros elétricos.",
     description:
-      "Projeto comercial com 60 placas de alta eficiência. Estudo de carga térmica considerando ventos da orla e sombreamento parcial em parte do dia.",
+      "Projeto comercial com 30 coletores de alta eficiência e dois reservatórios térmicos. Estudo de carga térmica considerou a alta ocupação na temporada e a demanda simultânea de banhos dos hóspedes.",
     highlight: true,
   },
   {
@@ -80,9 +80,9 @@ export const cases: ProjectCase[] = [
     cover: caseCondominio1,
     gallery: [caseCondominio1, caseDetailPanels, caseResidencial1],
     summary:
-      "Aquecimento da piscina coletiva com sistema dimensionado para alto volume de uso de moradores.",
+      "Aquecimento central de água com sistema dimensionado para alto volume de uso dos moradores.",
     description:
-      "Substituição de sistema antigo por novas placas de aquecimento solar. Dimensionamento considerando uso intenso nos finais de semana e feriados.",
+      "Substituição do aquecimento elétrico central por sistema solar em um condomínio de 40 unidades. Dimensionamento considerou o uso intenso nos finais de semana e horários de pico de banho.",
     highlight: true,
   },
   {
@@ -93,22 +93,22 @@ export const cases: ProjectCase[] = [
     installedAt: "2023-11",
     cover: caseResidencial3,
     gallery: [caseResidencial3, caseDetailPanels, caseResidencial2],
-    summary: "Instalação em residência com vista panorâmica e piscina de borda infinita.",
+    summary: "Instalação em residência com telhado de baixa inclinação e estrutura auxiliar.",
     description:
-      "Projeto desafiador com placas instaladas em telhado de baixa inclinação, exigindo estrutura auxiliar para garantir o ângulo solar ideal.",
+      "Projeto desafiador com coletores instalados em telhado de baixa inclinação, exigindo estrutura auxiliar para garantir o ângulo solar ideal e máxima eficiência no aquecimento.",
   },
   {
-    id: "clube-sorocaba",
-    title: "Clube Esportivo Central",
-    type: "clube",
+    id: "industria-sorocaba",
+    title: "Indústria - Distrito Industrial",
+    type: "industrial",
     city: "Sorocaba - SP",
     installedAt: "2023-08",
-    cover: caseClube1,
-    gallery: [caseClube1, caseDetailPanels, caseComercial1],
+    cover: caseIndustrial1,
+    gallery: [caseIndustrial1, caseDetailPanels, caseComercial1],
     summary:
-      "Piscina semi-olímpica aquecida para atender atletas e associados durante todo o inverno.",
+      "Sistema de grande porte para água quente nos vestiários e refeitório de fábrica.",
     description:
-      "Projeto de grande porte com 120 placas distribuídas em três coberturas distintas. Sistema com retorno automatizado e controle de temperatura por setor.",
+      "Projeto de grande porte com 60 coletores a vácuo distribuídos em duas coberturas distintas. Sistema com bombeamento automatizado e controle de temperatura por setor, atendendo turnos de produção inteiros.",
   },
   {
     id: "manutencao-santos",
@@ -120,7 +120,7 @@ export const cases: ProjectCase[] = [
     gallery: [caseDetailPanels, caseResidencial1, caseResidencial3],
     summary: "Limpeza, troca de tubulações e reativação de sistema solar de 8 anos.",
     description:
-      "Serviço de manutenção e reativação de sistema antigo. Trocamos válvulas, tubulações deterioradas pelo sol e fizemos limpeza profunda dos coletores.",
+      "Serviço de manutenção e reativação de sistema antigo. Trocamos válvulas, tubulações deterioradas pelo sol e fizemos a limpeza profunda dos coletores, recuperando a eficiência original do aquecimento.",
   },
   {
     id: "condominio-guarulhos",
@@ -129,10 +129,10 @@ export const cases: ProjectCase[] = [
     city: "Guarulhos - SP",
     installedAt: "2023-12",
     cover: caseCondominio1,
-    gallery: [caseCondominio1, caseDetailPanels, caseClube1],
-    summary: "Sistema dimensionado para uso coletivo com economia significativa em gás.",
+    gallery: [caseCondominio1, caseDetailPanels, caseIndustrial1],
+    summary: "Sistema dimensionado para uso coletivo com economia significativa na conta de energia.",
     description:
-      "Substituição parcial do aquecimento a gás por sistema solar. Hoje o condomínio usa o gás apenas em dias muito frios e nublados, gerando economia mensal expressiva.",
+      "Substituição parcial do aquecimento elétrico por sistema solar. Hoje o condomínio usa a resistência de apoio apenas em dias muito frios e nublados, gerando economia mensal expressiva.",
   },
 ];
 
