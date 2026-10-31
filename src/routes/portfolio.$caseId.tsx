@@ -13,15 +13,15 @@ export const Route = createFileRoute("/portfolio/$caseId")({
     return data;
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [] };
+    if (!loaderData) return { meta: [{ title: "Projeto - EDR Aquecedores" }] };
     return {
       meta: [
-        { title: `${loaderData.title} - SolAqua` },
+        { title: `${loaderData.title} - EDR Aquecedores` },
         { name: "description", content: loaderData.summary },
-        { property: "og:title", content: `${loaderData.title} - SolAqua` },
+        { property: "og:title", content: `${loaderData.title} - EDR Aquecedores` },
         { property: "og:description", content: loaderData.summary },
-        { property: "og:image", content: loaderData.cover },
-        { name: "twitter:image", content: loaderData.cover },
+        { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/portfolio/$caseId")({
         O projeto que você procura não existe ou foi removido.
       </p>
       <Button asChild className="mt-6">
-        <Link to="/vitrine">Voltar para a vitrine</Link>
+        <Link to="/portfolio">Voltar para o portifólio</Link>
       </Button>
     </div>
   ),
@@ -46,11 +46,11 @@ function CaseDetailPage() {
   return (
     <article className="container mx-auto px-4 py-10 md:py-14">
       <Link
-        to="/vitrine"
+        to="/portfolio"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para a vitrine
+        Voltar para o portifólio
       </Link>
 
       <header className="mt-6">
@@ -118,7 +118,8 @@ function CaseDetailPage() {
         <aside className="rounded-2xl border border-border bg-gradient-primary p-6 text-primary-foreground shadow-soft">
           <h3 className="text-lg font-semibold">Quero um projeto assim</h3>
           <p className="mt-2 text-sm text-primary-foreground/90">
-            Fale com nossa equipe e receba um orçamento sem compromisso para sua piscina.
+            Fale com nossa equipe e receba um orçamento sem compromisso para sua residência ou
+            empresa.
           </p>
           <Button
             asChild

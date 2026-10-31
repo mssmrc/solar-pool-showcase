@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Sun, Wrench, ShieldCheck, PiggyBank, MessageCircle, ArrowRight } from "lucide-react";
-import heroPool from "@/assets/hero-pool.jpg";
+import heroAquecimento from "@/assets/hero-aquecimento.jpg";
 import { Button } from "@/components/ui/button";
 import { featuredCases, formatInstallDate, CASE_TYPE_LABEL } from "@/data/cases";
 import { buildWhatsappUrl, siteConfig } from "@/config/site";
@@ -8,20 +8,22 @@ import { buildWhatsappUrl, siteConfig } from "@/config/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SolAqua - Aquecimento Solar para Piscinas | Instalação e Manutenção" },
+      { title: "EDR Aquecedores - Aquecimento Solar de Água | Instalação e Manutenção" },
       {
         name: "description",
         content:
-          "Especialistas em instalação e manutenção de placas de aquecimento solar para piscinas. Economia, conforto e sua piscina aquecida o ano todo.",
+          "Especialistas em instalação e manutenção de aquecimento solar de água para chuveiros e torneiras. Economia, conforto e água quente o ano todo.",
       },
       {
         property: "og:title",
-        content: "SolAqua - Aquecimento Solar para Piscinas",
+        content: "EDR Aquecedores - Aquecimento Solar de Água",
       },
       {
         property: "og:description",
-        content: "Instalação e manutenção de aquecimento solar para piscinas com qualidade.",
+        content: "Instalação e manutenção de aquecimento solar de água com qualidade.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HomePage,
@@ -31,7 +33,7 @@ const features = [
   {
     icon: Wrench,
     title: "Instalação especializada",
-    text: "Equipe técnica própria, projeto dimensionado para sua piscina e instalação limpa e rápida.",
+    text: "Equipe técnica própria, projeto dimensionado para sua residência e instalação limpa e rápida.",
   },
   {
     icon: ShieldCheck,
@@ -41,7 +43,7 @@ const features = [
   {
     icon: PiggyBank,
     title: "Economia real",
-    text: "Energia 100% gratuita do sol, com retorno do investimento em até 2 anos.",
+    text: "Substitua o chuveiro elétrico e economize até 30% na conta de energia, com retorno em até 2 anos.",
   },
   {
     icon: Sun,
@@ -51,7 +53,7 @@ const features = [
 ];
 
 const steps = [
-  { n: "01", title: "Avaliação", text: "Visita técnica gratuita para entender sua piscina e telhado." },
+  { n: "01", title: "Avaliação", text: "Visita técnica gratuita para entender sua residência e telhado." },
   { n: "02", title: "Projeto", text: "Dimensionamento personalizado e proposta sem compromisso." },
   { n: "03", title: "Instalação", text: "Equipe própria realiza a instalação em poucos dias." },
   { n: "04", title: "Manutenção", text: "Acompanhamento e suporte para garantir alto desempenho." },
@@ -64,8 +66,8 @@ function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroPool}
-            alt="Piscina aquecida com placas solares"
+            src={heroAquecimento}
+            alt="Aquecedor solar de água instalado em telhado residencial"
             width={1920}
             height={1080}
             className="h-full w-full object-cover"
@@ -77,14 +79,14 @@ function HomePage() {
           <div className="max-w-2xl text-primary-foreground animate-fade-in-up">
             <span className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-xs font-medium backdrop-blur">
               <Sun className="h-3.5 w-3.5 text-solar" />
-              Aquecimento solar para piscinas
+              Aquecimento solar de água
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-              Aproveite sua piscina <span className="text-solar">o ano todo</span>.
+              Água quente no chuveiro <span className="text-solar">o ano todo</span>.
             </h1>
             <p className="mt-5 max-w-xl text-lg text-primary-foreground/90 md:text-xl">
-              Instalação e manutenção de placas de aquecimento solar com economia, eficiência e
-              atendimento especializado.
+              Instalação e manutenção de aquecedores solares para chuveiros e torneiras, com
+              economia, eficiência e atendimento especializado.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
@@ -94,7 +96,7 @@ function HomePage() {
               >
                 <a
                   href={buildWhatsappUrl(
-                    `Olá! Gostaria de um orçamento de aquecimento solar para minha piscina.`,
+                    `Olá! Gostaria de um orçamento de aquecimento solar de água para minha residência.`,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -109,7 +111,7 @@ function HomePage() {
                 variant="outline"
                 className="border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
               >
-                <Link to="/vitrine">
+                <Link to="/portfolio">
                   Ver projetos
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -126,7 +128,7 @@ function HomePage() {
             Por que escolher a {siteConfig.name}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Mais de uma década aquecendo piscinas com tecnologia solar de ponta.
+            Mais de uma década aquecendo água com tecnologia solar de ponta.
           </p>
         </div>
 
@@ -178,7 +180,7 @@ function HomePage() {
             </p>
           </div>
           <Button asChild variant="outline">
-            <Link to="/vitrine">
+            <Link to="/portfolio">
               Ver todos
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -189,7 +191,7 @@ function HomePage() {
           {featuredCases.map((c) => (
             <Link
               key={c.id}
-              to="/vitrine/$caseId"
+              to="/portfolio/$caseId"
               params={{ caseId: c.id }}
               className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
             >
@@ -225,7 +227,7 @@ function HomePage() {
           <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Pronto para aquecer sua piscina?
+                Pronto para ter água quente sem susto na conta?
               </h2>
               <p className="mt-3 max-w-xl text-primary-foreground/90">
                 Fale agora com nossa equipe e receba um orçamento sem compromisso.
@@ -239,7 +241,7 @@ function HomePage() {
               >
                 <a
                   href={buildWhatsappUrl(
-                    `Olá! Gostaria de um orçamento de aquecimento solar para minha piscina.`,
+                    `Olá! Gostaria de um orçamento de aquecimento solar de água.`,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

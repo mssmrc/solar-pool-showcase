@@ -11,36 +11,38 @@ import {
 } from "@/data/cases";
 import { cn } from "@/lib/utils";
 
-const TYPE_VALUES = ["all", "residencial", "comercial", "condominio", "clube"] as const;
+const TYPE_VALUES = ["all", "residencial", "condominio", "comercial", "industrial"] as const;
 
-const vitrineSearchSchema = z.object({
+const portfolioSearchSchema = z.object({
   tipo: fallback(z.enum(TYPE_VALUES), "all").default("all"),
   cidade: fallback(z.string(), "all").default("all"),
 });
 
 export const Route = createFileRoute("/portfolio")({
-  validateSearch: zodValidator(vitrineSearchSchema),
+  validateSearch: zodValidator(portfolioSearchSchema),
   head: () => ({
     meta: [
-      { title: "Vitrine de Projetos - SolAqua" },
+      { title: "Portifólio de Projetos - EDR Aquecedores" },
       {
         name: "description",
         content:
-          "Conheça nossos projetos de aquecimento solar para piscinas: residencial, comercial, condomínios e clubes.",
+          "Conheça nossos projetos de aquecimento solar de água: residencial, comercial, condomínios e indústrias.",
       },
-      { property: "og:title", content: "Vitrine de Projetos - SolAqua" },
+      { property: "og:title", content: "Portifólio de Projetos - EDR Aquecedores" },
       {
         property: "og:description",
-        content: "Galeria de cases de aquecimento solar instalados pela SolAqua.",
+        content: "Galeria de cases de aquecimento solar de água instalados pela EDR Aquecedores.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: VitrinePage,
+  component: PortfolioPage,
 });
 
-function VitrinePage() {
+function PortfolioPage() {
   const { tipo, cidade } = Route.useSearch();
-  const navigate = useNavigate({ from: "/vitrine" });
+  const navigate = useNavigate({ from: "/portfolio" });
   const cities = useMemo(() => getUniqueCities(), []);
 
   const filtered = useMemo(() => {
@@ -63,11 +65,11 @@ function VitrinePage() {
       <section className="border-b border-border bg-secondary/30">
         <div className="container mx-auto px-4 py-14 md:py-20">
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-            Vitrine de <span className="text-primary">projetos</span>
+            Portifólio de <span className="text-primary">projetos</span>
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg">
-            Conheça alguns dos sistemas de aquecimento solar que já instalamos. Filtre por tipo de
-            projeto ou cidade para encontrar cases parecidos com o seu.
+            Conheça alguns dos sistemas de aquecimento solar de água que já instalamos. Filtre por
+            tipo de projeto ou cidade para encontrar cases parecidos com o seu.
           </p>
         </div>
       </section>
@@ -121,7 +123,7 @@ function VitrinePage() {
               {filtered.map((c) => (
                 <Link
                   key={c.id}
-                  to="/vitrine/$caseId"
+                  to="/portfolio/$caseId"
                   params={{ caseId: c.id }}
                   className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
                 >
